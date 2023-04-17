@@ -56,7 +56,6 @@ button:hover {
   button {
     display: block;
     margin: 0 auto;
-    padding: 10px 20px;
     border: none;
     background-color: #4285f4;
     color: #fff;
@@ -74,7 +73,6 @@ button:hover {
   
   #options label {
     display: block;
-    margin-bottom: 10px;
   }
   
   #nextBtn {
@@ -87,13 +85,5 @@ button:hover {
     font-size: 18px;
     cursor: pointer;
   }
-  
-  #result {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #4285f4;
-    color: #fff;
-    font-size: 18px;
-    display: none;
-  }
+
   

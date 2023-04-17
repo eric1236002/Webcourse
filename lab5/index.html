@@ -4,15 +4,22 @@
 <head>
     <meta charset="utf-8">
     <title></title>
-    <link rel="stylesheet"href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>YouTube心情點唱機</h1>
+    <div id="wrapper">
+    <h1 class="hero_content_title">YouTube心情點唱機</h1>
     <h2></h2><!--播放歌曲名稱放這裡-->
-    <div id="player"></div><!--YouTubeVideoPlayer-->
-    <br>
-    <input id="playButton"type="button"value="Play"></inputid>
+    <div id="player" class="hero_content_play"></div><!--YouTubeVideoPlayer-->
+    <div>
+    <button id="prevButton"><img src="./img/back.png" style="width: 50px; height: 50px;" alt="上一首"></button>    
+    <button id="backwardButton"><img src="./img/ten.png" style="width: 50px; height: 50px;" alt="後退10秒"></button>    
+    <button id="playButton"><img src="./img/play.png" style="width: 50px; height: 50px;" alt="撥放"></button>      
+    <button id="forwardButton"><img src="./img/ten2.png" style="width: 50px; height: 50px;" alt="前進10秒"></button>    
+    <button id="nextButton"><img src="./img/next.png" style="width: 50px; height: 50px;"  alt="下一首"></button>    
+    </div></div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
     <script src="play.js"></script>

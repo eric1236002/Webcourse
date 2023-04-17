@@ -1,5 +1,8 @@
 body {
     text-align: center;
+    background-image: url("/portfolio-1/portfolio-1/lab5/img/pic09.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 h2 {
@@ -7,3 +10,38 @@ h2 {
     height: 32px;
     font-size: medium;
 }
+#progressBar {
+    width: 50%;
+    height: 20px;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+  
+  #progressBar::-webkit-progress-bar {
+    height: 10px;
+    background-color: #ccc;
+  }
+  
+  #progressBar::-webkit-progress-value {
+    height: 10px;
+    background-color: #ff0000;
+  }
+  #wrapper {
+
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  .hero_content_play {
+    position: center;
+    width: 40rem;
+    height: 30rem;
+    border: 2px solid transparent;
+    border-radius:10%;
+    background: rgba(22, 22, 16, 0.75);
+    text-indent: 100px;
+    transition: border-color 0.3s ease;
+    animation: pulse 3s infinite;
+  }

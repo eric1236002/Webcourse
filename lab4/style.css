@@ -9,22 +9,49 @@ canvas {
 
 #talkBox {
     height: 20px;
-    color: brown;
-    font-size: 26px;
+    color: rgb(246, 100, 100);
+    font-size: 40px;
     font-weight: bold;
+}
+h1 {
+    height: 20px;
+    color: rgb(255, 255, 255);
 }
 #popup {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #fff;
-    border: 10px solid #ccc;
-    padding: 50px;
-    box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    font-size: 1.2rem;
+  }
+  
+  #popup p {
+    margin-bottom: 10px;
   }
   
   #closeBtn {
-    margin-top: 10px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    cursor: pointer;
   }
+  
+  #closeBtn:hover {
+    background-color: #3e8e41;
+  }
+  body {
+    background-image: url("/portfolio-1/portfolio-1/lab4/images/2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
   
