@@ -4,7 +4,7 @@ body {
 
 canvas {
     border: 2pxsolidblack;
-    background-image: url(./images/);
+    background-image: url(./images/grasses68.gif);
 }
 
 #talkBox {
@@ -49,7 +49,7 @@ h1 {
     background-color: #3e8e41;
   }
   body {
-    background-image: url("/portfolio-1/portfolio-1/lab4/images/2.jpg");
+    background-image: url(./images/2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
   }
