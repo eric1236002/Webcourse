@@ -1,6 +1,6 @@
 body {
     text-align: center;
-    background-image: url("/portfolio-1/portfolio-1/lab5/img/pic09.jpg");
+    background-image: url("./img/pic09.jpg");
     background-repeat: no-repeat;
     background-size: cover;
 }
