@@ -161,7 +161,7 @@ $(document).on("keydown", function(event){
                 $("#talkBox").text("哈摟");
                 break;
             case 4: // Reset Point
-                $("#talkBox").text("回到原點");
+                $("#talkBox").text("蟲洞!回到原點");
                 currentImgMain.x = 0;
                 currentImgMain.y = 0;
                 break;

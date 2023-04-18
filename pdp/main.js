@@ -1,12 +1,15 @@
 window.onload = function () {
-    var tigerScore = 0;
-    var peacockScore = 0;
-    var koalaScore = 0;
-    var owlScore = 0;
-    var chameleonScore = 0;
+
     $(function () {
-        //儲存目前作答到第幾題
+        var tigerScore = 0;
+        var peacockScore = 0;
+        var koalaScore = 0;
+        var owlScore = 0;
+        var chameleonScore = 0;
         var currentQuiz=null;//當按鈕按下後，要做的事情
+        //儲存目前作答到第幾題
+
+
         $("#startButton").on("click",function(){
             //如果還沒開始作答就從這裡開始
             if(currentQuiz==null){
@@ -19,53 +22,54 @@ window.onload = function () {
                     <label>${element[0]}</label><br><br>`);
                 });//將按鈕上的文字換成Next
                 $("#startButton").attr("value","Next");
+            }else if(currentQuiz==2){
+                //設定目前作答從第0題開始
+                currentQuiz=0;//顯示題目
+                $("#scores").empty();//將選項逐個加入
+                $("#question").text(questions[0].question);//將選項區清空(可以試著先不寫)
+                $("#options").empty();//將選項逐個加入
+                questions[0].answers.forEach(function(element,index,array){
+                    $("#options").append(`<input name='options'type='radio'value='${index}'>
+                    <label>${element[0]}</label><br><br>`);
+                });//將按鈕上的文字換成Next
+                $("#startButton").attr("value","Next");
             }else{
                 //已經開始作答從這邊繼續
                 $.each($(":radio"),function(i,val){
                     if(val.checked){
-                        //是否已走到最後要產生結果(A~D)
-                        if(isNaN(questions[currentQuiz].answers[i][1])){
-                            for (var i = 0; i < questions.length; i++) {
-                                var answer = questions[i].answers.filter(function (a) {
-                                    return a[1] !== undefined && a[1] !== null;
-                                }).find(function (a) {
-                                    return a[1] === total;
-                                });
-                                if (answer) {
-                                    var scoreArr = scores["老虎"];
-                                    if (scoreArr.includes(i + 1)) {
-                                        tigerScore += answer[1];
-                                    }
-                                    scoreArr = scores["孔雀"];
-                                    if (scoreArr.includes(i + 1)) {
-                                        peacockScore += answer[1];
-                                    }
-                                    scoreArr = scores["考拉"];
-                                    if (scoreArr.includes(i + 1)) {
-                                        koalaScore += answer[1];
-                                    }
-                                    scoreArr = scores["貓頭鷹"];
-                                    if (scoreArr.includes(i + 1)) {
-                                        owlScore += answer[1];
-                                    }
-                                    scoreArr = scores["變色龍"];
-                                    if (scoreArr.includes(i + 1)) {
-                                        chameleonScore += answer[1];
-                                    }
-                                }
-                            }
-                            console.log("老虎分數：" + tigerScore);
-                            console.log("孔雀分數：" + peacockScore);
-                            console.log("考拉分數：" + koalaScore);
-                            console.log("貓頭鷹分數：" + owlScore);
-                            console.log("變色龍分數：" + chameleonScore);
+                        if(currentQuiz==1){
+                            $("#startButton").attr("value","重新開始");
+                            currentQuiz+=1;
+                            chameleonScore+=questions[currentQuiz-1].answers[parseInt(document.querySelector('input[name="options"]:checked').value)][1];
+                            $("#ti").empty();
+                            $("#options").empty();
+                            $("#question").text("按圖片看更多");
+                            const scoresDiv = document.getElementById("scores");
+                            const tigerScoreStr = '<div><img src="./tiger.jpg" alt="Tiger"><span>老虎分數'+tigerScore+'</span></div>';
+                            const peacockScoreStr = '<div><img src="./peacock.jpg" alt="Peacock"><span>孔雀分數'+peacockScore+'</span></div>';
+                            const koalaScoreStr = '<div><img src="./koala.jpg" alt="Koala"><span>無尾熊分數'+koalaScore+'</span></div>';
+                            const owlScoreStr = '<div><img src="./owl.jpg" alt="Owl"><span>貓頭鷹分數'+owlScore+'</span></div>';
+                            const chameleonScoreStr = '<div><img src="./chameleon.jpg" alt="Chameleon"><span>變色龍分數'+chameleonScore+'</span></div>';
+                            scoresDiv.innerHTML = tigerScoreStr + peacockScoreStr + koalaScoreStr + owlScoreStr + chameleonScoreStr;
                         }
                         else{
-                            //指定下一題，原始資料從1開始，所以要-1
-                            if (currentQuiz  [5, 10, 14, 18, 24, 30]) {
-                                tigerScore++;
+                            if(currentQuiz<6){
+                                tigerScore+=questions[currentQuiz].answers[parseInt(document.querySelector('input[name="options"]:checked').value)][1];
                             }
-                            total[i]+=questions[currentQuiz].answers[i][1];
+                            else if(currentQuiz<12 && currentQuiz>=6){
+                                peacockScore+=questions[currentQuiz].answers[parseInt(document.querySelector('input[name="options"]:checked').value)][1];
+                            }
+                            else if(currentQuiz<18 && currentQuiz>=12){
+                                koalaScore+=questions[currentQuiz].answers[parseInt(document.querySelector('input[name="options"]:checked').value)][1];
+                            }
+                            else if(currentQuiz<24 && currentQuiz>=18){
+                                owlScore+=questions[currentQuiz].answers[parseInt(document.querySelector('input[name="options"]:checked').value)][1];
+                            }
+                            else if(currentQuiz<30 && currentQuiz>=24){
+                                chameleonScore+=questions[currentQuiz].answers[parseInt(document.querySelector('input[name="options"]:checked').value)][1];
+                            }
+                            
+
                             currentQuiz+=1;
                             //顯示新的題目
                             $("#question").text(questions[currentQuiz].question);
@@ -77,6 +81,33 @@ window.onload = function () {
                     }
                 });
             }
+            const images = document.querySelectorAll('img');
+            images.forEach(image => {
+                image.addEventListener('click', () => {
+                    const text = image.getAttribute('alt');
+                    const popup = document.getElementById('popup');
+                    if(text=='Tiger'){
+                        popup.innerHTML =  finalAnswers.tiger;
+                    }
+                    else if(text=='Peacock'){
+                        popup.innerHTML =  finalAnswers.peacock;
+                    }
+                    else if(text=='Koala'){
+                        popup.innerHTML =  finalAnswers.koala;
+                    }
+                    else if(text=='Owl'){
+                        popup.innerHTML =  finalAnswers.owl;
+                    }
+                    else if(text=='Chameleon'){
+                        popup.innerHTML =  finalAnswers.chameleon;
+                    }
+                    popup.style.display = 'block';
+                });
+            });
+            const popup = document.getElementById('popup');
+            popup.addEventListener('click', () => {
+            popup.style.display = 'none';
+            });
         });
     });
 };
