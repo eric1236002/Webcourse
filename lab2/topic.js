@@ -5,6 +5,9 @@ var topic = [
     "隨機性", 
     "重複性"
 ];
+cancelledTopics= [
+    "國定假日", 
+];
 var startDate= new Date();
 function setMonthAndDay(startMonth, startDay)
 {

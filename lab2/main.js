@@ -5,8 +5,12 @@ window.onload = function () {
         $("#courseTable").append("<tr><th>場次</th><th>時間</th><th>主題</th></tr>");
         var topicCount = topic.length; 
         for (var x = 0; x < topicCount; x++) {
+            var tableRowClass = (x % 2 === 0) ? "even-row" : "odd-row"; // 判斷奇數或偶數
+            if (cancelledTopics.includes(topic[x])) {
+                tableRowClass = "cancelled";
+            }
             $("#courseTable").append(
-                "<tr>" +
+                "<tr class='" + tableRowClass + "'>" +
                 `<td>${x + 1}</td>` +
                 `<td>${(new Date(startDate.getDay()+7*x*millesecond)).toLocaleDateString('zh-TW', { year: undefined, month: 'numeric', day: 'numeric' })}</td>` +
                 `<td>${topic[x]}</td>` +

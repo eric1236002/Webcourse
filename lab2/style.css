@@ -58,4 +58,14 @@ form label {
   form input[type="submit"]:hover {
     background-color: #3e8e41;
   }
-  
+  .even-row {
+    background-color: #eee; /* 偶數列顏色 */
+  }
+
+  .odd-row {
+      background-color: #fff; /* 奇數列顏色 */
+  }
+
+  .cancelled {
+    background-color: #ccc;
+  }
