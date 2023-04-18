@@ -1,4 +1,9 @@
-body{text-align:center;}
+body {
+  text-align: center;
+  background-image: url(./pic10.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 #startButton {
     background-color: #f7c600;
     border: none;
@@ -46,16 +51,8 @@ button:hover {
 }
 
   
-  
-  
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    margin: 0;
-  }
-  
-  #wrapper {
-    max-width: 1100px;
+#wrapper {
+    max-width: 1150px;
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;

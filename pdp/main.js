@@ -1,11 +1,11 @@
 window.onload = function () {
 
     $(function () {
-        var tigerScore = 0;
-        var peacockScore = 0;
-        var koalaScore = 0;
-        var owlScore = 0;
-        var chameleonScore = 0;
+        var tigerScore = 10;
+        var peacockScore = 10;
+        var koalaScore = 10;
+        var owlScore = 10;
+        var chameleonScore = 10;
         var currentQuiz=null;//當按鈕按下後，要做的事情
         //儲存目前作答到第幾題
 
@@ -22,12 +22,13 @@ window.onload = function () {
                     <label>${element[0]}</label><br><br>`);
                 });//將按鈕上的文字換成Next
                 $("#startButton").attr("value","Next");
-            }else if(currentQuiz==2){
+            }else if(currentQuiz==30){
                 //設定目前作答從第0題開始
                 currentQuiz=0;//顯示題目
                 $("#scores").empty();//將選項逐個加入
                 $("#question").text(questions[0].question);//將選項區清空(可以試著先不寫)
                 $("#options").empty();//將選項逐個加入
+                $("#popup").empty();//將選項逐個加入
                 questions[0].answers.forEach(function(element,index,array){
                     $("#options").append(`<input name='options'type='radio'value='${index}'>
                     <label>${element[0]}</label><br><br>`);
@@ -37,7 +38,7 @@ window.onload = function () {
                 //已經開始作答從這邊繼續
                 $.each($(":radio"),function(i,val){
                     if(val.checked){
-                        if(currentQuiz==1){
+                        if(currentQuiz==29){
                             $("#startButton").attr("value","重新開始");
                             currentQuiz+=1;
                             chameleonScore+=questions[currentQuiz-1].answers[parseInt(document.querySelector('input[name="options"]:checked').value)][1];
@@ -54,19 +55,19 @@ window.onload = function () {
                         }
                         else{
                             if(currentQuiz<6){
-                                tigerScore+=questions[currentQuiz].answers[parseInt(document.querySelector('input[name="options"]:checked').value)][1];
+                                tigerScore+=questions[currentQuiz].answers[parseInt(document.querySelector('input[name="options"]:checked').value)][1]*3;
                             }
                             else if(currentQuiz<12 && currentQuiz>=6){
-                                peacockScore+=questions[currentQuiz].answers[parseInt(document.querySelector('input[name="options"]:checked').value)][1];
+                                peacockScore+=questions[currentQuiz].answers[parseInt(document.querySelector('input[name="options"]:checked').value)][1]*3;
                             }
                             else if(currentQuiz<18 && currentQuiz>=12){
-                                koalaScore+=questions[currentQuiz].answers[parseInt(document.querySelector('input[name="options"]:checked').value)][1];
+                                koalaScore+=questions[currentQuiz].answers[parseInt(document.querySelector('input[name="options"]:checked').value)][1]*3;
                             }
                             else if(currentQuiz<24 && currentQuiz>=18){
-                                owlScore+=questions[currentQuiz].answers[parseInt(document.querySelector('input[name="options"]:checked').value)][1];
+                                owlScore+=questions[currentQuiz].answers[parseInt(document.querySelector('input[name="options"]:checked').value)][1]*3;
                             }
                             else if(currentQuiz<30 && currentQuiz>=24){
-                                chameleonScore+=questions[currentQuiz].answers[parseInt(document.querySelector('input[name="options"]:checked').value)][1];
+                                chameleonScore+=questions[currentQuiz].answers[parseInt(document.querySelector('input[name="options"]:checked').value)][1]*3;
                             }
                             
 
