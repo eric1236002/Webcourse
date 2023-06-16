@@ -7,6 +7,10 @@ function loadServerData() {
     $.getJSON(rss2json + "https://www.reddit.com/.rss")
         .done(function (data) {
             for(let x = 0; x < data.items.length; x++) {
+                let content = data.items[x].content;
+                if (content.includes("https://www.reddit.com/r/AskReddit/comments/14a0yaw/what_screams_im_insecure/")){
+                    continue;
+                }
                 let imageUrl = $(data.items[x].content).find("img").attr("src");
                 let title = data.items[x].title;
                 let link = data.items[x].link;
