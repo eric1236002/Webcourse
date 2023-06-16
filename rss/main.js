@@ -8,10 +8,13 @@ function loadServerData() {
         .done(function (data) {
             for(let x = 0; x < data.items.length; x++) {
                 let content = data.items[x].content;
+                let imageUrl ="";
                 if (content.includes("https://www.reddit.com/r/AskReddit/comments/14a0yaw/what_screams_im_insecure/")){
-                    continue;
+                    imageUrl="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png";
                 }
-                let imageUrl = $(data.items[x].content).find("img").attr("src");
+                else{
+                    imageUrl = $(data.items[x].content).find("img").attr("src");
+                }
                 let title = data.items[x].title;
                 let link = data.items[x].link;
 
